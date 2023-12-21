@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "9c491b8531eec05ba41a11d9276a5749",
+    "content-hash": "553eabcc0385090b567b2dacd7d00c0b",
     "packages": [
         {
             "name": "brick/math",
@@ -1993,6 +1993,57 @@
                 }
             ],
             "time": "2023-10-27T15:32:31+00:00"
+        },
+        {
+            "name": "mosab/translation",
+            "version": "v1.0.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/mosab-jbara/laravel-translation.git",
+                "reference": "58fa98b1a01edb4d3616fb48cc97cd4dd9f43055"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/mosab-jbara/laravel-translation/zipball/58fa98b1a01edb4d3616fb48cc97cd4dd9f43055",
+                "reference": "58fa98b1a01edb4d3616fb48cc97cd4dd9f43055",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/support": ">=5.0",
+                "php": ">=8.0"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Mosab\\Translation\\TranslationServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "files": [
+                    "src/helpers.php"
+                ],
+                "psr-4": {
+                    "Mosab\\Translation\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Mosab Jbara",
+                    "email": "mosabjbara@gmail.com"
+                }
+            ],
+            "description": "Translation Package",
+            "support": {
+                "issues": "https://github.com/mosab-jbara/laravel-translation/issues",
+                "source": "https://github.com/mosab-jbara/laravel-translation/tree/v1.0.2"
+            },
+            "time": "2023-05-29T17:49:08+00:00"
         },
         {
             "name": "nesbot/carbon",
@@ -8156,5 +8207,5 @@
         "php": "^8.1"
     },
     "platform-dev": [],
-    "plugin-api-version": "2.6.0"
+    "plugin-api-version": "2.3.0"
 }
