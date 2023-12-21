@@ -7,35 +7,28 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Http\Resources\UserResource;
 use App\Http\Traits\ApiResponseTrait;
+use App\Models\Email;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Hash;
 
 class AuthController extends Controller
 {
     use ApiResponseTrait;
-    public function register(Request $request){
-        $post_data = $request->validate([
-            'email'=>'required|string|email|unique:users',
-            'password'=>'required|min:8'
-        ]);
 
-        $user = User::create([
-            'email' => $post_data['email'],
-            'password' => Hash::make($post_data['password']),
-        ]);
+    public function login(Request $request)
+    {
 
-        $token = $user->createToken('authToken')->plainTextToken;
-
-        return $this->apiResponse(new UserResource($user),$token, 'registered successfully', 200);
-    }
-    public function login(Request $request){
         if (!Auth::attempt($request->only('email', 'password'))) {
             return response()->json([
                 'message' => 'Invalid login details'
             ], 401);
         }
-        $user = User::where('email', $request['email'])->firstOrFail();
+
+        $email = Email::where('email' , $request['email'])->firstOrFail();
+        $user = User::where('email_id', $email->id)->firstOrFail();
+
         $token = $user->createToken('authToken')->plainTextToken;
-        return $this->apiResponse(new UserResource($user),$token, 'registered successfully', 200);
+
+        return $this->apiResponse(new UserResource($user), $token, 'Login successfully', 200);
+
     }
 }
