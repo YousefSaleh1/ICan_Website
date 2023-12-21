@@ -11,4 +11,9 @@ class Email extends Model
     protected $fillable = [
         'email'
     ];
+
+    public function user()
+    {
+        return $this->hasOne(User::class, 'email_id', 'id');
+    }
 }
