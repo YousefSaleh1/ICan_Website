@@ -11,14 +11,10 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('users', function (Blueprint $table) {
+        Schema::create('partners', function (Blueprint $table) {
             $table->id();
-
-            $table->foreignId('email_id')->constrained('emails')->cascadeOnDelete();
-
-            $table->timestamp('email_verified_at')->nullable();
-            $table->string('password');
-            $table->rememberToken();
+            $table->foreignId('photo_id')->constrained()->cascadeOnDelete();
+            $table->string('link');
             $table->timestamps();
             $table->softDeletes();
         });
@@ -29,6 +25,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('users');
+        Schema::dropIfExists('partners');
     }
 };

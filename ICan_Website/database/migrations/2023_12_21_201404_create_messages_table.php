@@ -17,6 +17,7 @@ return new class extends Migration
             $table->foreignId('email_id')->constrained('emails')->cascadeOnDelete();
             $table->text('body');
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

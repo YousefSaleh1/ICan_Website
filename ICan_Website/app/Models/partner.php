@@ -6,19 +6,17 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
-class Message extends Model
+class partner extends Model
 {
     use HasFactory , SoftDeletes;
-
     protected $fillable = [
-        'email_id',
-        'name',
-        'body'
+        'photo_id',
+        'link'
     ];
 
 
-    public function email()
+    public function photo()
     {
-        return $this->belongsTo(Email::class);
+        return $this->belongsTo(Photo::class);
     }
 }
