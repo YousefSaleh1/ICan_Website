@@ -13,18 +13,22 @@ use Illuminate\Support\Facades\Auth;
 class AuthController extends Controller
 {
     use ApiResponseTrait;
+
     public function login(Request $request)
     {
+
         if (!Auth::attempt($request->only('email', 'password'))) {
             return response()->json([
                 'message' => 'Invalid login details'
             ], 401);
         }
+
         $email = Email::where('email' , $request['email'])->firstOrFail();
         $user = User::where('email_id', $email->id)->firstOrFail();
 
         $token = $user->createToken('authToken')->plainTextToken;
 
         return $this->apiResponse(new UserResource($user), $token, 'Login successfully', 200);
+
     }
 }

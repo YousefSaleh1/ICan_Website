@@ -18,7 +18,9 @@ class UserResource extends JsonResource
         $email = Email::find($this->email_id);
         return [
             'id'    => $this->id,
+
             'email' => new EmailResource($email),
+
         ];
     }
 }
