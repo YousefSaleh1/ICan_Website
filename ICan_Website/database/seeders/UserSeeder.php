@@ -18,10 +18,10 @@ class UserSeeder extends Seeder
     {
         try {
             DB::beginTransaction();
-            $email = Email::creat([
+            $email = Email::create([
                 'email' => 'admain@gmail.com'
             ]);
-            User::creat([
+            User::create([
                 'email_id' => $email->id,
                 'password' => Hash::make('admin123'),
             ]);
