@@ -16,4 +16,21 @@ class Email extends Model
     {
         return $this->hasOne(User::class, 'email_id', 'id');
     }
+
+    public function massage()
+    {
+        return $this->hasOne(Message::class, 'email_id', 'id');
+    }
+
+    public function demand()
+    {
+        return $this->hasOne(Demand::class, 'email_id', 'id');
+    }
+
+    public function feedback()
+    {
+        return $this->hasOne(Feedback::class, 'email_id', 'id');
+    }
+
+
 }
