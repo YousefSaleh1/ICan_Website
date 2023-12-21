@@ -31,4 +31,13 @@ class AuthController extends Controller
         return $this->apiResponse(new UserResource($user), $token, 'Login successfully', 200);
 
     }
+    public function logout(Request $request)
+    {
+        $request->user()->tokens()->delete();
+
+        return response()->json([
+            'message' => 'Successfully logged out'
+        ]);
+    }
+
 }
