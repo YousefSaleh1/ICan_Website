@@ -14,10 +14,10 @@ class Blog extends TranslatableModel
 
     protected $fillable = [
         'photo_id',
-        'content',
     ];
     protected $translatable = [
         'title',
+        'content',
     ];
 
     public function photo()

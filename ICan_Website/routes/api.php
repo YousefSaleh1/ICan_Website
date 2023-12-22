@@ -3,6 +3,7 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\API\AuthController;
+use App\Http\Controllers\API\BlogController;
 use App\Http\Controllers\API\DemandController;
 use App\Http\Controllers\API\FeedbackController;
 
@@ -34,5 +35,11 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::get('/feedbacks', [FeedbackController::class, 'index']);
     Route::get('/feedback/{feedback}', [FeedbackController::class, 'show']);
     Route::delete('/feedback/{feedback}', [FeedbackController::class, 'destroy']);
+
+    Route::get('/blogs', [BlogController::class, 'index']);
+    Route::post('/blog_store', [BlogController::class, 'store']);
+    Route::get('/blog/{blog}', [BlogController::class, 'show']);
+    Route::post('/blog_update/{blog}', [BlogController::class, 'update']);
+    Route::delete('/blog/{blog}', [BlogController::class, 'destroy']);
 
 });
