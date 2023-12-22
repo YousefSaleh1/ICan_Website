@@ -19,8 +19,7 @@ class BlogResource extends JsonResource
         return [
             'id'      => $this->id,
             'photo'   => new PhotoResource($photo),
-            'title'   => $this->title,
-            'content' => $this->content,
+            'translations'  =>$this->translations,
             'update'  => $this->updated_at->format('Y-m-d'),
         ];
     }
