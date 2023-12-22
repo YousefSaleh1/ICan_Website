@@ -9,9 +9,11 @@ use Illuminate\Http\Request;
 
 trait CreateTrait
 {
-    public function StoreEmail(Request $request)
+    public function StoreEmail($request)
     {
-        $email = Email::creat($request->email);
+        $email = Email::create([
+            'email' => $request
+        ]);
         return $email;
     }
 }
