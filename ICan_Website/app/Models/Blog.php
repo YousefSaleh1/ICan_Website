@@ -22,6 +22,6 @@ class Blog extends TranslatableModel
 
     public function photo()
     {
-        return $this->hasOne(Photo::class);
+        return $this->belongsTo(Photo::class,'photo_id', 'id');
     }
 }
