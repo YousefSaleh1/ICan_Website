@@ -6,6 +6,7 @@ use App\Http\Controllers\API\AuthController;
 use App\Http\Controllers\API\BlogController;
 use App\Http\Controllers\API\DemandController;
 use App\Http\Controllers\API\FeedbackController;
+use App\Http\Controllers\API\PartnerController;
 
 /*
 |--------------------------------------------------------------------------
@@ -42,4 +43,9 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::post('/blog_update/{blog}', [BlogController::class, 'update']);
     Route::delete('/blog/{blog}', [BlogController::class, 'destroy']);
 
+    Route::get('/partners', [PartnerController::class, 'index']);
+    Route::post('/partner_store', [PartnerController::class, 'store']);
+    Route::get('/partner/{partner}', [PartnerController::class, 'show']);
+    Route::post('/partner_update/{partner}', [PartnerController::class, 'update']);
+    Route::delete('/partner/{partner}', [PartnerController::class, 'destroy']);
 });

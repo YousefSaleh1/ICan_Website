@@ -89,7 +89,7 @@ class BlogController extends Controller
             }
             return $this->customeResponse(new BlogResource($blog), "Blog Updated Successfuly", 200);
         }
-        return $this->customeResponse(null, "not found", 404);
+        return $this->customeResponse(null, "Blog not found", 404);
     }
 
     /**

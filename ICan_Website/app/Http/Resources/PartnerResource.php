@@ -6,7 +6,7 @@ use App\Models\Photo;
 use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\JsonResource;
 
-class BlogResource extends JsonResource
+class PartnerResource extends JsonResource
 {
     /**
      * Transform the resource into an array.
@@ -17,10 +17,9 @@ class BlogResource extends JsonResource
     {
         $photo = Photo::find($this->photo_id);
         return [
-            'id'            => $this->id,
-            'photo'         => new PhotoResource($photo),
-            'translations'  =>$this->translations,
-            'update'        => $this->updated_at->format('Y-m-d'),
+            'id'       => $this->id,
+            'photo'    => new PhotoResource($photo),
+            'link'     => $this->link
         ];
     }
 }
