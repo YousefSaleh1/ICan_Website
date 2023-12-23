@@ -32,6 +32,8 @@ Route::post('/demand_store', [DemandController::class, 'store']);
 
 Route::post('/feedback_store', [FeedbackController::class, 'store']);
 
+Route::post('message', [MessageController::class, 'store']);
+
 Route::middleware('auth:sanctum')->group(function () {
 
     Route::post('/logout', [AuthController::class, 'logout']);
@@ -62,9 +64,6 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::post('/category_update/{category}', [CategoryController::class, 'update']);
     Route::delete('/category/{category}', [CategoryController::class, 'destroy']);
 
-});
-
-Route::middleware('auth:sanctum')->group(function(){
     Route::get('/message', [MessageController::class, 'index']);
     Route::get('/message/{message}', [MessageController::class, 'show']);
     Route::delete('/message/{message}', [MessageController::class, 'destroy']);
@@ -76,6 +75,6 @@ Route::middleware('auth:sanctum')->group(function(){
     Route::delete('employee/{id}', [EmployeeController::class, 'destroy']);
 
 });
-Route::post('message', [MessageController::class, 'store']);
+
 
 

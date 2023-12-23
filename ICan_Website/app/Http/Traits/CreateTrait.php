@@ -11,9 +11,13 @@ trait CreateTrait
 {
     public function StoreEmail($request)
     {
-        $email = Email::create([
-            'email' => $request
-        ]);
+        $email = Email::where('email', $request)->first();
+        if (empty($email)) {
+            $email = Email::create([
+                'email' => $request
+            ]);
+            return $email;
+        }
         return $email;
     }
 }
