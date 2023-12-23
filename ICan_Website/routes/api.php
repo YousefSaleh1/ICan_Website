@@ -4,6 +4,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\API\AuthController;
 use App\Http\Controllers\API\BlogController;
+use App\Http\Controllers\API\CategoryController;
 use App\Http\Controllers\API\DemandController;
 use App\Http\Controllers\API\FeedbackController;
 use App\Http\Controllers\API\PartnerController;
@@ -48,4 +49,11 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::get('/partner/{partner}', [PartnerController::class, 'show']);
     Route::post('/partner_update/{partner}', [PartnerController::class, 'update']);
     Route::delete('/partner/{partner}', [PartnerController::class, 'destroy']);
+
+    Route::get('/categories', [CategoryController::class, 'index']);
+    Route::post('/category_store', [CategoryController::class, 'store']);
+    Route::get('/category/{category}', [CategoryController::class, 'show']);
+    Route::post('/category_update/{category}', [CategoryController::class, 'update']);
+    Route::delete('/category/{category}', [CategoryController::class, 'destroy']);
+
 });

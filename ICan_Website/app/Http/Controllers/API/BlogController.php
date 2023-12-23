@@ -71,7 +71,7 @@ class BlogController extends Controller
             try {
                 if (!empty($request->photo)) {
 
-                    $photo = $this->StorePhoto($request, 'blogs');
+                    $photo = $this->StorePhoto($request, 'Blogs');
                     $photo_id = $photo->id;
                 } else {
                     $photo_id = $blog->photo_id;
