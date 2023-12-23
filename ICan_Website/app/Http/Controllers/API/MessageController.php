@@ -49,7 +49,7 @@ class MessageController extends Controller
         }
 
         if ($message) {
-            return $this->customeResponse(new MessageResource($message), 'Successful', 201);
+            return $this->customeResponse(new MessageResource($message), 'Successful', 200);
         }
         return $this->customeResponse(null, 'not found', 404);
 
@@ -65,7 +65,7 @@ class MessageController extends Controller
         if (!$message) {
             return $this->customeResponse(null, 'Message Not Found!', 404);
         }
-        return $this->customeResponse(new MessageResource($message), 'Deleted Message Successfully.', 200);
+        return $this->customeResponse(new MessageResource($message), 'Successful.', 200);
 
     }
 
