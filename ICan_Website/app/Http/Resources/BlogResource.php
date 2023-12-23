@@ -2,10 +2,11 @@
 
 namespace App\Http\Resources;
 
+use App\Models\Photo;
 use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\JsonResource;
 
-class PhotoResource extends JsonResource
+class BlogResource extends JsonResource
 {
     /**
      * Transform the resource into an array.
@@ -14,10 +15,12 @@ class PhotoResource extends JsonResource
      */
     public function toArray(Request $request): array
     {
+        $photo = Photo::find($this->photo_id);
         return [
-
-            'photo'   => asset('photos/' .$this->photo),
-
+            'id'      => $this->id,
+            'photo'   => new PhotoResource($photo),
+            'translations'  =>$this->translations,
+            'update'  => $this->updated_at->format('Y-m-d'),
         ];
     }
 }
