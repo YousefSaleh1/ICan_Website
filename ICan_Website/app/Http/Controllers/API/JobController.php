@@ -76,16 +76,19 @@ class JobController extends Controller
      */
     public function update(JobRequest $request, string $id)
     {
+
         $validate = $request->validated();
         $job = CompanyJob::find($id);
+
         if (!$job) {
             return $this->customeRespone(null, 'the job not found.', 404);
         }
+
         DB::beginTransaction();
+
         try {
             if (!empty($request->photo)) {
-
-                $photo = $this->StorePhoto($request,'job');
+                $photo = $this->StorePhoto($request, 'Jobs');
                 $photo_id = $photo->id;
             } else {
                 $photo_id = $job->photo_id;
@@ -93,17 +96,17 @@ class JobController extends Controller
 
             $job->update([
                 'title' => $request->title,
-                'photo' => $photo_id,
+                'photo_id' => $photo_id,
                 'link' => $request->link,
             ]);
 
+            DB::commit();
         } catch (\Throwable $th) {
             DB::rollBack();
             throw $th;
         }
 
-        return $this->customeResponse(new CompanyJob($job), "job Updated Successfuly", 200);
-
+        return $this->customeResponse(new JobResource($job), "job Updated Successfully", 200);
     }
 
     /**

@@ -27,6 +27,7 @@ class Category extends TranslatableModel
 
     public function company_jobs()
     {
-        return $this->belongsToMany(CompanyJob::class, 'job_categories', 'category_id', 'company_job_id');
+        // return $this->belongsToMany(CompanyJob::class, 'job_categories', 'category_id', 'company_job_id');
+        return $this->belongsToMany(CompanyJob::class, 'job_categories');
     }
 }
