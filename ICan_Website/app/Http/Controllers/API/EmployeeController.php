@@ -51,7 +51,7 @@ class EmployeeController extends Controller
             throw $th;
         }
         if ($employee) {
-            return $this->customeResponse(new EmployeeResource($employee), 'Successful', 201);
+            return $this->customeResponse(new EmployeeResource($employee), 'Successful', 200);
         }
         return $this->customeResponse(null, 'not found', 404);
 
@@ -68,7 +68,7 @@ class EmployeeController extends Controller
         if (!$employee) {
             return $this->customeResponse(null, 'employee Not Found!', 404);
         }
-        return $this->customeResponse(new EmployeeResource($employee), 'Deleted employee Successfully.', 200);
+        return $this->customeResponse(new EmployeeResource($employee), 'Successful.', 200);
 
     }
 
