@@ -13,7 +13,6 @@ class Employee extends TranslatableModel
     use HasFactory,SoftDeletes;
 
     protected $fillable = [
-
         'photo_id',
         'facebook',
         'linkedin',

@@ -18,7 +18,7 @@ trait ApiResponseTrait
     }
 
 
-    public function customeRespone($data, $message, $status) {
+    public function customeResponse($data, $message, $status) {
         $array = [
             'data'=>$data,
             'message'=>$message
