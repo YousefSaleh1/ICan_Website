@@ -3,9 +3,15 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\API\AuthController;
+
+use App\Http\Controllers\API\EmployeeController;
+use App\Http\Controllers\API\MessageController;
+use App\Models\Message;
+
 use App\Http\Controllers\API\BlogController;
 use App\Http\Controllers\API\DemandController;
 use App\Http\Controllers\API\FeedbackController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -43,3 +49,19 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::delete('/blog/{blog}', [BlogController::class, 'destroy']);
 
 });
+
+Route::middleware('auth:sanctum')->group(function(){
+    Route::get('/message', [MessageController::class, 'index']);
+    Route::get('/message/{message}', [MessageController::class, 'show']);
+    Route::delete('/message/{message}', [MessageController::class, 'destroy']);
+
+    Route::get('employee', [EmployeeController::class, 'index']);
+    Route::get('employee/{id}', [EmployeeController::class, 'show']);
+    Route::post('employee', [EmployeeController::class, 'store']);
+    Route::post('employee/{id}', [EmployeeController::class, 'update']);
+    Route::delete('employee/{id}', [EmployeeController::class, 'destroy']);
+
+});
+Route::post('message', [MessageController::class, 'store']);
+
+
