@@ -20,7 +20,7 @@ class BlogController extends Controller
      */
     public function index()
     {
-        $blogs = Blog::latest()->paginate(4);
+        $blogs = Blog::latest();
         return $this->customeResponse(BlogResource::collection($blogs), "All Blogs", 200);
     }
 
