@@ -15,7 +15,9 @@ class PhotoResource extends JsonResource
     public function toArray(Request $request): array
     {
         return [
+
             'photo'   => asset('photos/' .$this->photo),
+
         ];
     }
 }
